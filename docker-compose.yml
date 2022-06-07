@@ -1,0 +1,43 @@
+version: '3'
+services:
+   rred:
+     image: nginx
+     container_name: rred
+     restart: always
+     networks: 
+       - rrbnet
+     volumes:
+       - ./site1/conf.d:/etc/nginx/conf.d
+       - ./site1/www:/var/www
+   bblue:
+     image: nginx
+     container_name: bblue
+     restart: always
+     networks: 
+       - rrbnet
+     volumes:
+       - ./site2/conf.d:/etc/nginx/conf.d
+       - ./site2/www:/var/www
+   rrb:
+     image: nginx
+     container_name: rrb
+     ports:
+       - 3344:80
+     networks: 
+       - rrbnet
+     volumes:
+       - ./site3/conf.d:/etc/nginx/conf.d
+   site:
+     image: nginx
+     container_name: site
+     restart: always
+     ports:
+       - 443:443
+       - 80:80
+     volumes:
+        - ./cert:/etc/letsencrypt/live/msite11.sytes.net/
+        - ./www:/var/www/
+        - ./site_conf:/etc/nginx/conf.d
+networks:
+     rrbnet:
+        driver: bridge
