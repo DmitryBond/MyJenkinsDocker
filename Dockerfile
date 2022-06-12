@@ -10,6 +10,7 @@ COPY ./site_conf /etc/nginx/conf.d
 COPY ./nginx.conf /etc/nginx/
 #COPY nginx.crt /etc/ssl/certs/nginx/nginx.crt
 #COPY nginx.key /etc/ssl/certs/nginx/nginx.key
+#
 # Volume configuration
 VOLUME /var/www
 EXPOSE 80 443
