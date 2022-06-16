@@ -14,3 +14,4 @@ COPY ./nginx.conf /etc/nginx/
 VOLUME /var/www
 EXPOSE 80 443
 CMD ["nginx", "-g", "daemon off;"]
+#
