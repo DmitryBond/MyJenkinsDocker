@@ -35,7 +35,6 @@ services:
        - 443:443
        - 80:80
      volumes:
-        - ./cert:/etc/letsencrypt/live/msite11.sytes.net/
         - ./www:/var/www/
         - ./site_conf:/etc/nginx/conf.d
 networks:
