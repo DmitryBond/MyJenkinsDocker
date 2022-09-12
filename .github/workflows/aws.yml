@@ -32,8 +32,7 @@ on:
 
 env:
   AWS_REGION: "us-east-1"                   # set this to your preferred AWS region, e.g. us-west-1
-  ECR_REPOSITORY: "577252187772.dkr.ecr.us-east-1.amazonaws.com/github-action:latest"           # set this to your Amazon ECR repository nam
-
+  
 jobs:
   deploy:
     name: Deploy
@@ -64,6 +63,6 @@ jobs:
         # Build a docker container and
         # push it to ECR so that it can
         # be deployed to ECS.
-        docker build -t $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG .
-        docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
-        echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
+        docker build -t 577252187772.dkr.ecr.us-east-1.amazonaws.com/github-action:latest .
+        docker push 577252187772.dkr.ecr.us-east-1.amazonaws.com/github-action:latest
+        echo "::set-output name=image::577252187772.dkr.ecr.us-east-1.amazonaws.com/github-action:latest"
